@@ -1072,7 +1072,7 @@ static void json_next_number_token(json_parse_t *json, json_token_t *token)
     // 17 characters may be represented without conversion loss.
     if ( json->cfg->decode_big_numbers_as_strings &&
          ( endptr - json->ptr > 16 ||
-           fabs(token->value.number) > 9007199254740991.0 ) )
+           fabs(token->value.number) > 99999999999999.0 ) )
     {
         token->type = T_STRING;
         strbuf_reset(json->tmp);
